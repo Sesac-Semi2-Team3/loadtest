@@ -1,0 +1,37 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: db-read.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 2000 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: 2000 looping VUs for 30s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    ✓ status is 200
+
+    HTTP
+    http_req_duration..............: avg=1.87s min=84.98ms  med=2s max=3.2s  p(90)=2.15s p(95)=2.23ss  p(90)=2.15s p(95)=2.23s                                                s  p(90)=2.15s p(95)=2.23s
+      { expected_response:true }...: avg=1.87s min=84.98ms  med=2s max=3.2s  p(90)=2.15s p(95)=2.23s
+    http_req_failed................: 0.00%  0 out of 32109
+    http_reqs......................: 32109  1029.97901/s
+                                                                          1s p(90)=2.15s p(95)=2.24s
+    EXECUTION
+    iteration_duration.............: avg=1.89s min=110.83ms med=2s max=3.31s p(90)=2.15s p(95)=2.24s
+    iterations.....................: 32109  1029.97901/s
+    vus............................: 704    min=704        max=2000       
+    vus_max........................: 2000   min=2000       max=2000       
+
+    NETWORK
+    data_received..................: 6.1 MB 196 kB/s
+    data_sent......................: 4.0 MB 128 kB/s
+
+                

@@ -1,0 +1,41 @@
+## redis sqs mix
+PS C:\git\sesac-semi-2> k6 run redis-sqs-mix.js  
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: redis-sqs-mix.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1200 max VUs, 2m10s max duration (incl. graceful stop):
+              * default: Up to 1200 looping VUs for 1m40s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 205556  2043.680829/s
+    checks_succeeded...: 100.00% 205556 out of 205556
+    checks_failed......: 0.00%   0 out of 205556
+
+    ✓ redis read ok
+    ✓ async ok
+
+    HTTP
+    http_req_duration..............: avg=310.58ms min=5.99ms med=317.04ms max=1.12s p(90)=495.29ms p(95)=604.9ms
+      { expected_response:true }...: avg=310.58ms min=5.99ms med=317.04ms max=1.12s p(90)=495.29ms p(95)=604.9ms
+    http_reqs......................: 205556 2043.680829/s
+
+    EXECUTION
+    iteration_duration.............: avg=342.12ms min=36ms   med=348.11ms max=1.15s p(90)=528.9ms  p(95)=636.48ms
+    iterations.....................: 205556 2043.680829/s
+    vus............................: 1199   min=14          max=1199
+    vus_max........................: 1200   min=1200        max=1200
+
+    NETWORK
+    data_received..................: 37 MB  369 kB/s
+    data_sent......................: 25 MB  250 kB/s

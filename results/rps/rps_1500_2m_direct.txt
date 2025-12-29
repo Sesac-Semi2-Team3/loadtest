@@ -1,0 +1,42 @@
+k6 run rps-direct-mix.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: rps-direct-mix.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 3000 max VUs, 2m30s max duration (incl. graceful stop):
+              * fixed_rps: 1500.00 iterations/s for 2m0s (maxVUs: 500-3000, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 178306  1483.358387/s
+    checks_succeeded...: 100.00% 178306 out of 178306
+    checks_failed......: 0.00%   0 out of 178306
+
+    ✓ direct read ok
+    ✓ direct write ok
+
+    HTTP
+    http_req_duration..............: avg=278.88ms min=5.99ms med=58.77ms max=5.42s p(90)=795.12ms p(95)=971.22ms
+      { expected_response:true }...: avg=278.88ms min=5.99ms med=58.77ms max=5.42s p(90)=795.12ms p(95)=971.22ms
+    http_req_failed................: 0.00%  0 out of 178306
+    http_reqs......................: 178306 1483.358387/s
+
+    EXECUTION
+    dropped_iterations.............: 1695   14.100998/s
+    iteration_duration.............: avg=279.01ms min=5.99ms med=58.89ms max=5.42s p(90)=795.5ms  p(95)=971.63ms
+    iterations.....................: 178306 1483.358387/s
+    vus............................: 433    min=13          max=1589
+    vus_max........................: 1599   min=720         max=1599
+
+    NETWORK
+    data_received..................: 31 MB  261 kB/s
+    data_sent......................: 23 MB  193 kB/s

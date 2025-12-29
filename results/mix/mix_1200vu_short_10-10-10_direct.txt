@@ -1,0 +1,41 @@
+## direct mix
+PS C:\git\sesac-semi-2> k6 run direct-mix.js   
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: direct-mix.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1200 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: Up to 1200 looping VUs for 30s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 53921   1757.267435/s
+    checks_succeeded...: 100.00% 53921 out of 53921
+    checks_failed......: 0.00%   0 out of 53921
+
+    ✓ read ok
+    ✓ write ok
+
+    HTTP
+    http_req_duration..............: avg=273.33ms min=6.8ms   med=195.09ms max=3.18s p(90)=629.31ms p(95)=873.88ms
+      { expected_response:true }...: avg=273.33ms min=6.8ms   med=195.09ms max=3.18s p(90)=629.31ms p(95)=873.88ms
+    http_reqs......................: 53921  1757.267435/s
+
+    EXECUTION
+    iteration_duration.............: avg=304.11ms min=36.99ms med=226.03ms max=3.21s p(90)=660.21ms p(95)=904.61ms
+    iterations.....................: 53921  1757.267435/s
+    vus............................: 1193   min=26         max=1193
+    vus_max........................: 1200   min=1200       max=1200
+
+    NETWORK
+    data_received..................: 9.7 MB 317 kB/s
+    data_sent......................: 6.9 MB 226 kB/s

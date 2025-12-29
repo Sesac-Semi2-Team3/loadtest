@@ -1,0 +1,41 @@
+k6 run rps-sqs-mix.js     
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: rps-sqs-mix.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 3000 max VUs, 2m30s max duration (incl. graceful stop):
+              * fixed_rps: 1500.00 iterations/s for 2m0s (maxVUs: 500-3000, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 178877  1490.48355/s
+    checks_succeeded...: 100.00% 178877 out of 178877
+    checks_failed......: 0.00%   0 out of 178877
+
+    ✓ redis read ok
+    ✓ async write ok
+
+    HTTP
+    http_req_duration..............: avg=146.15ms min=5.51ms med=12.58ms max=1.21s p(90)=586.05ms p(95)=716.14ms
+      { expected_response:true }...: avg=146.15ms min=5.51ms med=12.58ms max=1.21s p(90)=586.05ms p(95)=716.14ms
+    http_req_failed................: 0.00%  0 out of 178877
+
+    EXECUTION
+    dropped_iterations.............: 1124   9.365673/s
+    iteration_duration.............: avg=146.28ms min=5.51ms med=12.71ms max=1.21s p(90)=586.32ms p(95)=716.56ms
+    iterations.....................: 178877 1490.48355/s
+    vus............................: 14     min=12          max=1289
+    vus_max........................: 1311   min=634         max=1311
+
+    NETWORK
+    data_received..................: 32 MB  262 kB/s
+    data_sent......................: 22 MB  186 kB/s
